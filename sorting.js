@@ -86,15 +86,36 @@ function merge(left, right, array) {
   return array;
 }
 
-function bucketSort(arr) {
+let minPointer = 0;
+let maxPointer = 1;
+
+function bucketSort(arr, min = Math.min(...arr), max = Math.max(...arr), temp = []) {
+
+  if (arr.length < 1) {
+    return temp;
+  }
+
+  temp.splice(minPointer, 0, min);
+  temp.splice(maxPointer, 0, max);
+  arr.splice(arr.indexOf(min), 1);
+  arr.splice(arr.indexOf(max), 1);
+
+  minPointer++;
+  maxPointer++;
+
+  min = Math.min(...arr);
+  max = Math.max(...arr);
+
+  return bucketSort(arr, min, max, temp);
 
 }
 
 function main() {
-  console.log(quickSort(data));
-  console.log(quickCount, 'quick sort operations!');
+  // console.log(quickSort(data));
+  // console.log(quickCount, 'quick sort operations!');
   // console.log(mergeSort(data));
   // console.log(mergeCount, 'merge sort operations!!');
+  console.log(bucketSort(data));
 }
 
 main();
