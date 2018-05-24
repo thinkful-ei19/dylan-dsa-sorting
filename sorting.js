@@ -129,6 +129,41 @@ of the books had the same first letter. For each set of books with the same firs
 I'd run a quick sort on their second letter. I'd then have this recursive call over and 
 over until none of the nth letters match in books with the same first letter, second letter,
 etc. 
+
+let qCount = 0;
+function quickSort(array, start=0, end=array.length) {
+  qCount++;
+  start = start;
+  end = end;
+  if (start >= end) {
+    return array;
+  }
+  const middle = partition(array, start, end);
+  array = quickSort(array, start, middle);
+  array = quickSort(array, middle + 1, end);
+  return array;
+}
+
+function partition(array, start, end) {
+  const pivot = array[end - 1].title;
+  let j = start;
+  for (let i=start; i<end - 1; i++) {
+    if (array[i].title <= pivot) {
+      swap(array, i, j);
+      j++;
+    }
+  }
+  swap(array, end-1, j);
+  return j;
+}
+
+function swap(array, i, j) {
+  const tmp = array[i];
+  array[i] = array[j];
+  array[j] = tmp;
+}
+
+
 */
 
 function main() {
@@ -136,8 +171,8 @@ function main() {
   // console.log(quickCount, 'quick sort operations!');
   // console.log(mergeSort(data));
   // console.log(mergeCount, 'merge sort operations!!');
-  // console.log(bucketSort(data));
-  console.log(inPlaceShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+  console.log(bucketSort([3, 2, 1, 5, 4, 9, 0]));
+  // console.log(inPlaceShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 }
 
 main();
