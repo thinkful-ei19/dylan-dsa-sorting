@@ -10,10 +10,9 @@ function swap(array, i, j) {
 
 let quickCount = 0;
 
-function quickSort(array, start = 0, end = array.length, count = 0) {
+function quickSort(array, start = 0, end = array.length) {
 
   quickCount++;
-  console.log(count);
 
   start = start;
   end = end;
