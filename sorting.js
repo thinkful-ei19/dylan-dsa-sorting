@@ -8,7 +8,13 @@ function swap(array, i, j) {
   array[j] = tmp;
 }
 
-function quickSort(array, start = 0, end = array.length) {
+let quickCount = 0;
+
+function quickSort(array, start = 0, end = array.length, count = 0) {
+
+  quickCount++;
+  console.log(count);
+
   start = start;
   end = end;
 
@@ -34,7 +40,12 @@ function partition(array, start, end) {
   return j;
 }
 
+let mergeCount = 0;
+
 function mergeSort(array) {
+
+  mergeCount++;
+
   if (array.length <= 1) {
     return array;
   }
@@ -49,6 +60,9 @@ function mergeSort(array) {
 }
 
 function merge(left, right, array) {
+
+  // mergeCount++;
+
   let leftIndex = 0;
   let rightIndex = 0;
   let outputIndex = 0;
@@ -62,18 +76,26 @@ function merge(left, right, array) {
   }
 
   for (let i = leftIndex; i < left.length; i++) {
+    // mergeCount++;
     array[outputIndex++] = left[i];
   }
 
   for (let i = rightIndex; i < right.length; i++) {
+    // mergeCount++;
     array[outputIndex++] = right[i];
   }
   return array;
 }
 
+function bucketSort(arr) {
+
+}
+
 function main() {
-  // console.log(quickSort(data));
-  console.log(mergeSort(data));
+  console.log(quickSort(data));
+  console.log(quickCount, 'quick sort operations!');
+  // console.log(mergeSort(data));
+  // console.log(mergeCount, 'merge sort operations!!');
 }
 
 main();
