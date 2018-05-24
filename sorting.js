@@ -121,6 +121,16 @@ function inPlaceShuffle(arr) {
 
 }
 
+//SORTING BOOKS ALPHABETICALLY
+/* 
+To sort the book alphabetically, I'd first use a quick sort to sort the books alphabetically
+by their first letter. That should take care of most of the work. Then, I'd check if any
+of the books had the same first letter. For each set of books with the same first letter,
+I'd run a quick sort on their second letter. I'd then have this recursive call over and 
+over until none of the nth letters match in books with the same first letter, second letter,
+etc. 
+*/
+
 function main() {
   // console.log(quickSort(data));
   // console.log(quickCount, 'quick sort operations!');
