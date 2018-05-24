@@ -110,12 +110,24 @@ function bucketSort(arr, min = Math.min(...arr), max = Math.max(...arr), temp = 
 
 }
 
+function inPlaceShuffle(arr) {
+
+  for (let i = 0; i < arr.length; i++) {
+    let rand = Math.floor(Math.random() * arr.length);
+    swap(arr, i, rand);
+  }
+
+  return arr;
+
+}
+
 function main() {
   // console.log(quickSort(data));
   // console.log(quickCount, 'quick sort operations!');
   // console.log(mergeSort(data));
   // console.log(mergeCount, 'merge sort operations!!');
-  console.log(bucketSort(data));
+  // console.log(bucketSort(data));
+  console.log(inPlaceShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 }
 
 main();
